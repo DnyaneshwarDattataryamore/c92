@@ -23,7 +23,7 @@ function player_update(){
     fabric.Image.fromURL("player.png",function (img){
         player_object=img;
         player_object.scaleToWidth(100);
-        player_object.scaleToHeightt(155)
+        player_object.scaleToHeight(155)
         player_object.set({
             top:player_y,
             left:player_x
@@ -65,7 +65,7 @@ function my_key_down(e){
         document.getElementById("current_height").innerHTML=block_img_hight;       
 }
 if (keypressed=="38"){
-    Up ();
+    up ();
     console.log ("up");
 }
 if (keypressed=="40"){
@@ -120,6 +120,39 @@ if (keypressed=="67"){
 
 function up(){
   if(player_y>0){
-    player_y=
-  }   
+    player_y=player_y-block_img_hight;
+    console.log("block height= "+block_img_hight);
+    console.log("when up pressed ,x= "+player_x+" y= "+player_y);
+    canvas.remove(player_object);
+    player_update();
+  }
 }
+function down(){
+    if(player_y<500){
+      player_y=player_y+block_img_hight;
+      console.log("block height= "+block_img_hight);
+      console.log("when up pressed ,x= "+player_x+" y= "+player_y);
+      canvas.remove(player_object);
+      player_update();
+    }   
+}
+
+function left(){
+    if(player_x>0){
+      player_x=player_x-block_img_wdth;
+      console.log("block height= "+block_img_hight);
+      console.log("when up pressed ,x= "+player_x+" y= "+player_y);
+      canvas.remove(player_object);
+      player_update();
+    }
+  }
+  function right(){
+    if(player_x<=900){
+      player_x=player_x+block_img_wdth;
+      console.log("block height= "+block_img_hight);
+      console.log("when up pressed ,x= "+player_x+" y= "+player_y);
+      canvas.remove(player_object);
+      player_update();
+    }
+  }
+  
